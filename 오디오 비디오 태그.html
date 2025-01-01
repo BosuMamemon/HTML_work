@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>오디오 비디오 태그</title>
+    </head>
+    <body>
+        <object width="900" height="600" data="product.pdf"></object>
+            <!-- object: 오디오, 비디오, pdf 등 다양한 파일을 실행하는 태그 -->
+        <embed src="medias/spring.mp3">
+            <!-- embed: object, video, audio 태그가 실행되지 않는 옛날 브라우저에서 파일을 실행하는 태그 -->
+            <!-- 근데 object든 embed든 둘 다 잘 안쓴다고 함 ㅋㅋ 그냥 video나 audio 태그 씀 -->
+        <audio src="medias/spring.mp3" controls></audio>
+        <video src="medias/salad.mp4" width="80%" controls></video>
+            <!-- controls 옵션을 지우면 아예 컨트롤러가 안보임.. 무조건 적어줘야 함 -->
+            <!-- ☆ audio, video 태그의 속성들 ☆ -->
+            <!-- controls: 컨트롤 패널을 출력한다. -->
+            <!-- autoplay: 자동재생 (지금은 없애버린 기능이라고 함... 누가 autoplay 기능으로 자꾸 테러해서 없앴음) -->
+                <!-- video 태그에 muted 속성을 적용한 조건에서만 사용 가능!! -->
+            <!-- muted: 음소거 -->
+            <!-- poster="파일 이름": 비디오의 썸네일을 출력 -->
+            <!-- loop: 반복 재생 -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/b8w6XwnlAoY?si=i9GDcmDbCpqQ37Pr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- 유튜브 영상의 경우 '퍼가기' 기능에 있는 iframe 태그를 사용해야 퍼올 수가 있음 -->
+        <embed src="https://www.youtube.com/embed/b8w6XwnlAoY?si=i9GDcmDbCpqQ37Pr" type="">
+            <!-- src에다 주소 쓰고 싶으면 embed 태그 써야함!!! -->
+    </body>
+</html>

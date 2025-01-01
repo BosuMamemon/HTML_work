@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8"> <!-- 캐릭터 셋(표시 언어 설정) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- name="viewport": 화면 크기에 따라서 컨텐츠 크기도 자동으로 커졌다 작아졌다 하는거 -->
+        <!-- content="width=device-width, initial-scale=1.0": 기기의 가로 길이만큼 자동으로 맞춰주는 거 -->
+        <title>테이블 관련 태그</title>
+        <!-- 밑에는 지금만 잠깐 CSS 맛만 보는 거 -->
+        <style>
+            #teaTable {
+                border: 1px solid black;
+                border-collapse: separate;
+            }
+            #teaTable th, #teaTable td {
+                border: 1px solid red;
+            }
+            table, th, td {
+                border: 1px solid #ccc;
+                border-collapse: collapse; 
+                /* 보더 콜랩스 = 테이블의 외곽선을 하나로 만들어주는 css (테이블에 하나, 데이터에 하나씩 외곽선 넣으면 원래는 두 줄이 되어야 함) */
+            }
+            th, td {
+                padding: 10px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table> <!-- 표. -->
+            <tr> <!-- Table Row. 표 행. -->
+                <td>1행 1열</td> <!-- Table Data. -->
+                <td>1행 2열</td>
+            </tr>
+            <tr>
+                <td>2행 1열</td>
+                <td>2행 2열</td>
+            </tr>
+        </table>
+        <h2>상품 구성</h2>
+        <table>
+            <thead> <!-- 표 안의 head 태그 -->
+                <caption><img src="images/tangerines.jpg" alt=""></caption>
+                <colgroup>
+                    <col style="background-color: #eee;">
+                    <col>
+                    <col style="width: 150px;">
+                    <col style="width: 150px;">
+                </colgroup>
+                <!-- colgroup: 각 열마다 그룹으로 묶는 태그. 다른 스타일을 설정하여 표의 형식을 다양하게 만들 수 있음 -->
+                <!-- 단!!! colgroup 태그를 쓰려면 무조건 테이블의 모든 열의 개수만큼 col태그를 안에 집어넣어야 함 -->
+                <th colspan="4">선물용과 가정용 상품 구성</th>
+                <!-- span이란 넓이라는 뜻임!! -->
+                <tr>
+                    <th>용도</th> <!-- Table Head. 표 제목열의 데이터들 -->
+                    <th>중량</th>
+                    <th>개수</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody> <!-- 표 안의 body 태그 -->
+                <tr>
+                    <td rowspan="2">선물용</td>
+                    <td>3kg</td>
+                    <td>11~16과</td>
+                    <td>35,000원</td>
+                </tr>
+                <tr>
+                    <td>5kg</td>
+                    <td>18~26과</td>
+                    <td>52,000원</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">가정용</td>
+                    <td>3kg</td>
+                    <td>11~16과</td>
+                    <td>30,000원</td>
+                </tr>
+                <tr>
+                    <td>5kg</td>
+                    <td>18~26과</td>
+                    <td>47,000원</td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot> <!-- 표 안의 footer 태그. 합계 or 통계 같은 데이터가 들어간다고 함~ -->
+        </table>
+        <br>
+        <hr>
+        <br>
+        <table>
+            <thead>
+                <tr> <!-- 쉬프트 알트 드래그 하면 세로로 한꺼번에 다 드래그할 수 있음 -->
+                    <th>일</th>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <hr>
+        <br>
+        <table id="teaTable">
+            <thead>
+                <tr>
+                    <th colspan="6">한국의 차</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="6">뿌리차</th>
+                    <td>인삼차</td>
+                    <th rowspan="9">과일차</th>
+                    <td>수정과</td>
+                    <th rowspan="5">잎차</th>
+                    <td>뽕잎차</td>
+                </tr>
+                <tr>
+                    <td>당귀차</td>
+                    <td>유자차</td>
+                    <td>감잎차</td>
+                </tr>
+                <tr>
+                    <td>생강차</td>
+                    <td>구기자차</td>
+                    <td>솔잎차</td>
+                </tr>
+                <tr>
+                    <td>칡차</td>
+                    <td>대추차</td>
+                    <td>극화차</td>
+                </tr>
+                <tr>
+                    <td>둥굴레차</td>
+                    <td>오미자차</td>
+                    <td>이슬차</td>
+                </tr>
+                <tr>
+                    <td>마차</td>
+                    <td>매실차</td>
+                    <th rowspan="4">기타</th>
+                    <td>두충차</td>
+                </tr>
+                <tr>
+                    <th rowspan="3">곡물차</th>
+                    <td>보리차</td>
+                    <td>모과차</td>
+                    <td>영지버섯차</td>
+                </tr>
+                <tr>
+                    <td>옥수수차</td>
+                    <td>산수유차</td>
+                    <td>귤강차</td>
+                </tr>
+                <tr>
+                    <td>현미차</td>
+                    <td>탕자차</td>
+                    <td>쌍화차</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
