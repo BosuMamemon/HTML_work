@@ -11,10 +11,6 @@
             th, td {
                 padding: 10px 20px;
             }
-            #link, #link th {
-                border: 1px, solid, blue;
-                border-collapse: collapse;
-            }
         </style>
     </head>
     <body>
@@ -23,11 +19,18 @@
         </header>
         <main>
             <table>
+                <thead>
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col style="width: 300px;">
+                    </colgroup>
+                </thead>
                 <tbody>
                     <tr>
                         <th rowspan="3">개인정보</th>
                         <th>이름</th>
-                        <td width="200px"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>학과/학번</th>
@@ -42,15 +45,6 @@
                         <td colspan="2"></td>
                     </tr>
                 </tbody>
-            </table>
-            <br><br><br><br><br><br>
-            <table id="link">
-                <tr>
-                    <th><img src="../images/mic.jpg" alt=""></th>
-                </tr>
-                <tr>
-                    <th style="background-color: aqua"><a href="2024-12-27 자습(1).html">모집 요강 보러 가기</a></th>
-                </tr>
             </table>
         </main>
     </body>
