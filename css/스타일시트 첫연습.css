@@ -1,0 +1,6 @@
+/* 그냥 내부 스타일 시트 안의 스타일 태그 안이다 생각하고 바로 시작하면 됨 */
+
+h1 {
+    background-color: black;
+    color: white;
+}

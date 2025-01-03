@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>연습문제(사과 주문 공지사항)</title>
+        <style>
+            #header {
+                margin: 0 auto;
+                width: 640px;
+                height: 294px;
+                background-image: url(../../images/apple.jpg);
+                background-size: cover;
+            }
+            #container {
+                margin: 5px auto;
+                width: 640px;
+                border: 1px solid rgb(190, 190, 190);
+                text-align: center;
+            }
+            .p1 {
+                margin: 0;
+                padding: 10px;
+                text-align: left;
+                background-color: black;
+                color: white;
+                font-weight: bold;
+            }
+            .p2 {
+                border: 1px solid rgb(190, 190, 190);
+                border-collape: collapse;
+            }
+            .p2 h1{
+                margin: 1.25em;
+                color: red;
+                font-size: 1.5em;
+                font-weight: bolder;
+            }
+            .p2 p {
+                font-size: 1.2em;
+                font-weight: bold;
+                line-height: 2em;
+            }
+            .p2 span {
+                color: blue;
+            }
+            .p2 .small {
+                margin-bottom: 1.5em;
+                font-size: 0.75em;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="container">
+            <p class="p1">확인하세요</p>
+            <div class="p2">
+                <h1>주문 및 배송</h1>
+                <p><span>오후 2시 이전</span> 주문건은 당일 발송합니다
+                <br>2시 이후 주문건은 다음날 발송합니다(주말 제외)</p>
+            </div>
+            <div class="p2">
+                <h1>교환 및 환불</h1>
+                <p>불만족시 <span>100% 환불</span>해 드립니다
+                <br>고객센터로 전화주세요</p>
+            </div>
+            <div class="p2">
+                <h1>고객센터</h1>
+                <p>0000-0000<br>
+                <span class="small">상담시간 : 오전 9시 ~ 오후 6시 (토/일, 공휴일 휴무)</span></p>
+            </div>
+        </div>
+    </body>
+</html>

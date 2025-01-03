@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>글꼴 관련 스타일</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Hahmlet:wght@100..900&family=Song+Myung&display=swap" rel="stylesheet">
+            <!-- CDN 방식: 위 link 태그처럼, 브라우저가 http 링크를 사용하여 필요한 파일을 받는 방식 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <style>
+            @font-face {
+                font-family: "East Sea Dokdo";
+                src: url(../font/EastSeaDokdo-Regular.ttf);
+            }
+                /* 웹 폰트: 개발자가 설정한 폰트를 사용하기 위해 웹에 폰트를 올려두고, 고객이 페이지를 열었을 때 다운받아 실행하는 폰트. */
+                /* @font-face: 다운로드 받은 웹 폰트를 스타일 시트 안에 선언해주는 선택자 */
+
+
+
+            .song-myung-regular {
+                font-family: "Song Myung", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+            .hahmlet {
+                font-family: "Hahmlet", serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+                /* CDN 방식도 이런 식으로 style 태그 안에 CSS 코드를 입력해서 선언을 한 번 해줘야 함 */
+
+
+
+            body {
+                font-family: "Hahmlet", 돋움, 굴림;
+                    /* 웹 문서에서 사용할 폰트를 지정하는 속성 */
+                    /* 글꼴이 없을 가능성을 고려해서 ,기호를 사용해서 보통 3번째까지 지정해줌 (플랜 A, B, C라는 의미임) */
+                /* font: ; */
+                    /* font-family, font-size, font-style, font-weight, line-height, font-variant, font-stretch... 등등을 한꺼번에 지정할 수 있는 속성. */
+                background-image: url(../images/notice.jpg);
+            }
+            h1 {
+                font-size: 60px;
+                /* 폰트의 사이즈를 지정하는 속성. */
+            }
+            p { font-size: 30px; }
+            span {
+                color: hsl(0, 100%, 50%);
+                    /* color의 색상 설정 방식 */
+                    /* 1. 색상의 이름으로 설정 ex) color: red; */
+                    /* 2. 16진수 값으로 설정. 보통 가장 많이 사용함!! ex) color: #FF0000; */
+                    /* 3. rgb로 설정 ex) color: rgb(red값, green값, blue값); */
+                        /* rgb() 안의 rgb값은 0~255임 */
+                    /* 4. rgba로 설정 ex) color: rgba(red값, green값, blue값, alpha값); */
+                        /* alpha값(투명도)은 0~1임 */
+                    /* 5. hsl로 설정 ex) color: hsl(색상값, 채도값, 명도값); */
+                        /* hsl() 안의 색상값은 0~360, 채도값은 0~100%, 명도값은 0~100%임 */
+                    /* 6. hsla로 설정 ex) color: hsla(색상값, 채도값, 명도값, alpha값); */
+                    /* 구글 Color picker(혹은 크롬 확장 프로그램 ex. ColorZilla)에서 색상 16진수 및 rgb값을 제공해줌 */
+                font-size: 3rem;
+                    /* em 단위: 부모 요소의 값에 대한 상대적인 크기를 지정하는 속성. (3em = 부모 요소의 3배) */
+                    /* rem 단위: html 태그(최상위 태그)의 값에 대한 상대적인 크기를 지정하는 속성. (3rem = html 태그 요소의 3배) */
+                font-style: italic;
+                    /* font-style: 글자를 기울이거나 기울이지 않도록 표현하는 속성 */
+                    /* italic 아니면 normal을 적용함 */
+                font-weight: bolder;
+                    /* font-weight: 글자의 굵기를 지정하는 속성 */
+                    
+                    /* lighter, normal, bold, bolder 순으로 굵어짐. 100 ~ 900까지 숫자로 지정할 수도 있음. */
+                    /* bold = 700, normal = 400으로 설정됨 */
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>레드향</h1>
+        <p>껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.</p>
+        <p>레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+        <p>비타민 C와 비타민 P가 풍부해 혈액순환, 감기 예방 등에 좋은 것으로 알려져 있다.</p>
+        <ul>
+            <li>
+                <i class="fa-solid fa-house-chimney"></i>
+                <a href="#">메뉴 1</a>
+            </li>
+            <li>
+                <i class="fa-regular fa-calendar-days"></i>
+                <a href="#">메뉴 2</a>
+            </li>
+            <li>
+                <i class="fa-solid fa-battery-full"></i>
+                <a href="#">메뉴 3</a>
+            </li>
+        </ul>
+    </body>
+</html>

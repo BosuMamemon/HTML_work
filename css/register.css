@@ -32,6 +32,8 @@ input[type="text"], input[type="password"], input[type="email"] {
   width:400px;
   margin:20px auto;
   text-align: center;
+  /* margin: 여백 설정
+text-align: 텍스트 정렬 */
 }
 #buttons input {
   width:150px;

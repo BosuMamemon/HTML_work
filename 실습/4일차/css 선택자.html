@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>css 선택자</title>
+        <style>
+            /* 전체 선택자: html를 포함한 모든 태그를 선택하는 선택자. *기호를 사용함 */
+            /* 보통 가장 처음에 브라우저 기본 스타일을 원하는 내용으로 초기화할 때 사용함 */
+            * { 
+                margin: 10px;
+                    /* margin: 외부 여백 설정 */
+                padding: 0;
+                    /* padding: 내부 여백 설정 */
+            }
+            /* 타입 선택자: 태그의 이름을 사용하여, 문서에서 특정 태그를 사용한 모든 요소에 스타일을 적용하는 방식 */
+            p {
+                font-style: italic;
+                    /* font-style: italic -> 폰트 스타일로 이탤릭체를 적용하는 속성임 */
+                    /* p태그는 이제부터 전부 이탤릭체임 */
+            }
+            /* class 선택자: 태그에 class 속성을 설정하여 선택하는 방식. .기호를 사용함 */
+            /* class 속성: id 속성과 달리 여러 번 중복해서 사용 가능 */
+            .accent {
+                border: 1px solid black;
+                padding: 5px;
+            }
+            .bg {
+                background-color: grey;
+            }
+            /* id 선택자: #기호를 사용해 태그의 id 속성을 선택하는 방식 */
+            /* id 속성은 태그 하나 당 1개만 사용할 수 있으므로 중복해서 사용할 수 없음 */
+            #container {
+                width: 500px;
+                    /* 가로 크기 500px으로 고정이라는 뜻임. */
+                /* height: 500px; */
+                    /* 세로 크기 500px로 고정이라는 뜻임. */
+                margin: 0 auto;
+                    /* 상하단 margin 0, 좌우 margin 정중앙 자동 설정이라는 뜻임. */
+                    /* 진짜 많이 사용하는 옵션임. */
+                padding: 10px;
+                border: 1px solid black;
+            }
+            /* 그룹 선택자: ,기호를 사용하여 선택자를 묶어 CSS를 적용하는 방식 */
+            h1, .p1, #p2 {
+                text-align: center;
+                    /* 텍스트 정렬을 가운데로 설정하는 속성임. */
+            }
+            #p3 { color: blue !important; }
+                /* !important 속성은 최후의 수단으로 사용하는 편... 아니 웬만하면 사용을 하지 마셈 */
+            .p3 { color: green; }
+            .p3_1 { color: blueviolet; }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="accent bg">
+                <!-- class 속성에 스페이스바를 누르면 여러 클래스 이름을 붙이겠다는 말임 -->
+                레드향
+            </h1>
+            <p class="p1">껍질에 붉은 빛이 돌아 <span class="accent">레드향</span>이라 불린다.</p>
+                <!-- <span> 태그: 자체적으로 특별한 의미가 전혀 없는 인라인 컨테이너.
+                    단순 텍스트나 인라인 콘텐츠 등에 스타일이나 속성, 스크립트를 위한 범위를 위해 감싸주는 태그.
+                    <span>의 "span"이라는 단어는 영어로 "범위" 또는 "간격"을 의미. -->
+            <p id="p2">레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+            <p class="p3 p3_1" id="p3" style="color: red;">비타민 C와 비타민 P가 풍부해 혈액순환, 감기 예방 등에 좋은 것으로 알려져 있다.</p>
+                <!-- 캐스캐이딩 원칙에 따라서,
+                 전체 스타일 < 타입 스타일 < class 스타일 < id 스타일 < 인라인 스타일 < !important 속성 순으로 CSS 우선순위가 적용되고 있음 -->
+                <!-- CSS = Cascading Style Sheet라는 뜻임 -->
+                <!-- 같은 class끼리 스타일이 충돌하면 가장 아래에 작성된 style이 실행됨 -->
+        </div>
+    </body>
+</html>

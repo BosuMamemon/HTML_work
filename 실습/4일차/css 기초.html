@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>css 기초</title>
+        <!-- 외부 스타일 시트: 확장자가 .css인 link 태그를 이용해 CSS를 적용하는 방식
+         보통 이 방식을 많이 사용함!!!! -->
+        <link rel="stylesheet" href="../css/스타일시트 첫연습.css">
+        <style>
+            /* 아래부터 내부 스타일 시트임 */
+            /* <head> 태그 안의 <style> 태그 안에서만 작성해야 함 */
+            p {
+                color: blue;
+                font-size: 50px;
+            }
+            /* css 스타일 기본 형식 */
+            /* 선택자 {
+                 속성1: 속성값;
+                 속성2: 속성값;
+                } */
+            /* 스타일 안에서는 주석 설정이랑 처리를 1줄씩 하는 걸 추천... 여러 줄하면 막 꼬이고 안해주고 그럼 ㅇㅇ */
+        </style>
+    </head>
+    <body>
+        <h1>CSS 기초 문법 및 적용 방법 (외부 스타일 시트 연습)</h1>
+        <p>내부 스타일 시트 적용 예시임.</p>
+        <p style="color: crimson; font-size: 70px;">인라인 스타일 적용 예시임.</p>
+            <!-- 인라인 스타일: 태그 안에 style 속성을 사용하여 CSS를 적용하는 방식. in-line style. -->
+    </body>
+</html>
