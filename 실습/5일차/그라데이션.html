@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>그라데이션</title>
+        <style>
+            .grad1 {
+                width: 500px;
+                height: 300px;
+                background: blue;
+                    /* 그라데이션을 지원하지 않는 브라우저일 경우. */
+                background: linear-gradient(to right bottom, blue, white);
+                    /* 좌측 상단에서 우측 하단 방향으로, 파란색에서 서서히 흰색으로 변경 */
+            }
+            .grad2 {
+                width: 500px;
+                height: 300px;
+                background: red;
+                background: linear-gradient(45deg, red, white);
+                    /* 이것도 크롬 개발자 도구에서 각도를 잡고 나중에 코드를 복붙해올 수 있음 */
+            }
+            .grad3 {
+                width: 500px;
+                height: 300px;
+                background: orange;
+                background: linear-gradient(to bottom, orange, white 50%, orange);
+                    /* 50% 지점까지 흰색으로 변경했다가, 다시 오렌지색으로 변경한다는 뜻임 */
+            }
+
+            .raGrad1 {
+                width: 500px;
+                height: 300px;
+                background: red;
+                background: radial-gradient(white, yellow, red);
+                    /* 타원형으로 퍼져나가는 것이 기본임. 중앙부터 시작함!! */
+            }
+            .raGrad2 {
+                width: 500px;
+                height: 300px;
+                background: red;
+                background: radial-gradient(circle, white, yellow, red);
+                    /* circle을 사용하면 그라데이션 모양이 원형으로 퍼져나감 */
+            }
+            .box {
+                width: 300px;
+                height: 300px;
+                border: 1px solid black;
+                display: inline-block;
+                margin: 10px;
+            }
+            .raGrad3 {
+                background: red;
+                background: radial-gradient(circle closest-side at 30% 40%, white, yellow, red);
+                    /* at 뒤에는 항상 그라데이션 시작 위치를 표시함 */
+                    /* at 30% 40% -> 30% 40% 위치에서 시작한다는 뜻임 */
+                    /* closest-side: 가장 가까운 변까지 색상이 변한다는 말, 변화 정도가 가장 낮음 */
+            }
+            .raGrad4 {
+                background: red;
+                background: radial-gradient(circle closest-corner at 30% 40%, white, yellow, red);
+                    /* closest-corner: 가장 가까운 꼭짓점까지 색상이 변한다는 말, 변화 정도가 낮음 */
+            }
+            .raGrad5 {
+                background: red;
+                background: radial-gradient(circle farthest-side at 30% 40%, white, yellow, red);
+                    /* farthest-side: 가장 먼 변까지 색상이 변한다는 말, 변화 정도가 높음 */
+            }
+            .raGrad6 {
+                background: red;
+                background: radial-gradient(circle farthest-corner at 30% 40%, white, yellow, red);
+                    /* farthest-corner: 가장 먼 꼭짓점까지 색상이 변한다는 말, 변화 정도가 가장 높음 */
+            }
+            .raGrad7 {
+                width: 500px;
+                height: 300px;
+                background: orange;
+                background: radial-gradient(yellow, white 10%, orange 60%);
+                    /* 10% 지점까지 흰색으로 변경했다가, 60% 지점까지 오렌지색으로 변경한다는 뜻임 */
+            }
+
+            .patt1 {
+                width: 500px;
+                height: 300px;
+                background: red;
+                background: repeating-linear-gradient(yellow, red 20px);
+                    /* 20px 간격으로 반복해서 그라데이션을 만든다는 뜻임 */
+            }
+            .patt2 {
+                width: 500px;
+                height: 300px;
+                background: #ccc;
+                background: repeating-radial-gradient(circle, #df84df, #f1dbef, #c893c9 16%);
+                    /* 10% 간격으로 반복해서 원형 그라데이션을 만든다는 뜻임 */
+                    /* 물론 이것도 크롬 개발자 도구로 ㅋㅋ루삥뽕이 가능함 */]
+                    /* 난 그래서 윤회안 모양으로 만들었음 */
+            }
+            </style>
+    </head>
+    <body>
+        <h1>선형 그라데이션</h1>
+        <!-- background의 패러미터 중 하나임 -->
+        <!-- linear-gradient(to 방향(right bottom 등등...) 또는 각도(~~deg) 색상중지점[, 색상중지점, 색상중지점, ...] ) -->
+
+        <div class="grad1"></div>
+        <div class="grad2"></div>
+        <div class="grad3"></div>
+
+        <br><hr><br>
+
+        <h1>원형 그라데이션</h1>
+        <!-- radial-gradient(모양 크기 at 위치, 색상중지점[, 색상중지점, 색상중지점, ...]) -->
+        <div class="raGrad1"></div>
+        <div class="raGrad2"></div>
+        <div class="raGrad3 box"></div>
+        <div class="raGrad4 box"></div>
+        <div class="raGrad5 box"></div>
+        <div class="raGrad6 box"></div>
+        <div class="raGrad7"></div>
+
+        <br><hr><br>
+
+        <h1>그라데이션 반복해서 패턴 모양 만들기</h1>
+
+        <div class="patt1"></div>
+        <div class="patt2"></div>
+        <h2>윤회안 가슴이 웅장해진다</h2>
+    </body>
+</html>
