@@ -116,6 +116,166 @@
             #nbox4 {
                 margin-left: auto;
             }
+
+            .aliContainer {
+                width: 100%;
+                height: 150px;
+                border: 1px solid black;
+                display: flex;
+                justify-content: flex-start;
+                background-color: lightgrey;
+                margin-bottom: 20px;
+            }
+            #aliOpt1 {
+                align-items: flex-start;
+            }
+            #aliOpt2 {
+                align-items: flex-end;
+            }
+            #aliOpt3 {
+                align-items: center;
+            }
+            #aliOpt4 {
+                align-items: baseline;
+            }
+            #aliOpt5 {
+                align-items: stretch;
+            }
+
+            .selfContainer {
+                height: 200px;
+                background-color: lightgrey;
+                border: 1px solid black;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+            }
+            #self01 {
+                align-self: flex-start;
+            }
+            #self02 {
+                align-self: flex-end;
+            }
+            #self03 {
+                align-self: center;
+            }
+            #self04 {
+                align-self: baseline;
+            }
+            #self05 {
+                align-self: stretch;
+            }
+            #self06 {
+                align-self: auto;
+                    /* 플렉스 컨테이너의 align-items를 따라간다는 뜻임! */
+            }
+
+            .acContainer {
+                width: 300px;
+                height: 300px;
+                margin: 30px;
+                border: 1px solid black;
+                background: lightgrey;
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .acBox {
+                width: 80px;
+                padding: 10px;
+                margin: 5px;
+            }
+            .acBox:nth-child(odd) {
+                background: orange;
+            }
+            .acBox:nth-child(even) {
+                background: lightgreen;
+            }
+            #acOpt1 {
+                align-content: flex-start;
+            }
+            #acOpt2 {
+                align-content: flex-end;
+            }
+            #acOpt3 {
+                align-content: center;
+            }
+            #acOpt4 {
+                align-content: space-between;
+            }
+            #acOpt5 {
+                align-content: space-around;
+            }
+            #acOpt6 {
+                align-content: stretch;
+            }
+
+            .gapContainer {
+                width: 700px;
+                height: 150px;
+                display: flex;
+                background: lightgrey;
+                border: 1px solid black;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+            }
+            .gapBox {
+                width: 80px;
+                padding: 10px;
+            }
+            .gapBox:nth-child(odd) {
+                background: orange;
+            }
+            .gapBox:nth-child(even) {
+                background: lightgreen;
+            }
+
+            .basisContainer {
+                width: 800px;
+                background: lightgrey;
+                border: 1px solid black;
+                display: flex;
+                gap: 30px;
+            }
+            .basisBox {
+                background: black;
+                flex-basis: 150px;
+                    /* 각각의 항목에 flex-basis를 지정해야 함
+                    가로 너비만 적용 가능(위 코드는 해당 플렉스 요소를 150*150으로 적용한다는 뜻)
+                    width랑 차이점 = width로 설정한 너비는 절대 안 바뀜
+                    flex-basis는 글자 크기 등등에 따라서 플렉스 요소 크기가 달라질 수 있음 */
+            }
+            .basisBox p {
+                color: white;
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            .growContainer {
+                width: 800px;
+                height: 100px;
+                border: 1px solid black;
+                display: flex;
+                gap: 10px;
+            }
+            #growBox1 {
+                flex-grow: 1;
+                background: orange;
+            }
+            #growBox2 {
+                flex-grow: 1;
+                background: lightgreen;
+            }
+            #growBox3 {
+                flex-grow: 0;
+                background: orange;
+            }
+            #growBox4 {
+                flex-grow: 2;
+                background: lightgreen;
+            }
+                /* 플렉스 컨테이너에서 남는 공간을 1:1:0:2로 나누겠다는 코드임 */
         </style>
     </head>
     <body>
@@ -180,7 +340,7 @@
         <h1>3. justify-content: 주축을 기준으로 항목을 정렬(배치)</h1>
         <!-- flex-start = 요소를 공백 앞에 둔다
          flex-end = 요소를 공백 뒤에 둔다
-         center = 요소를 플렉스 컨테이너 중간에 둔다
+         center = 요소를 주축 중간에 둔다
          space-between = 공백을 요소 사이에 둔다
          space-around = 공백을 요소 주변에 둔다
          space-evenly = 공백을 공평하게 배분한다 -->
@@ -240,6 +400,122 @@
         <br><hr><br>
 
         <h1>5. align-items: 교차축을 기준으로 정렬(배치)</h1>
-        
+        <!-- flex-start = 요소를 공백 위에 둔다
+         flex-end = 요소를 공백 밑에 둔다
+         center = 요소를 교차축 중간에 둔다
+         baseline = 요소를 문자기준선을 중심으로 위치시킨다 (font-size = 상하 margin)
+         stretch = 기본값. -->
+        <div class="aliContainer" id="aliOpt1">
+            <div class="box"><p>1</p></div>
+            <div class="box"><p>2</p></div>
+            <div class="box"><p>3</p></div>
+            <div class="box"><p>4</p></div>
+        </div>
+        <div class="aliContainer" id="aliOpt2">
+            <div class="box"><p>1</p></div>
+            <div class="box"><p>2</p></div>
+            <div class="box"><p>3</p></div>
+            <div class="box"><p>4</p></div>
+        </div>
+        <div class="aliContainer" id="aliOpt3">
+            <div class="box"><p>1</p></div>
+            <div class="box"><p>2</p></div>
+            <div class="box"><p>3</p></div>
+            <div class="box"><p>4</p></div>
+        </div>
+        <div class="aliContainer" id="aliOpt4">
+            <div class="box"><p>1</p></div>
+            <div class="box"><p style="font-size: 30px;">2</p></div>
+            <div class="box"><p style="font-size: 25px;">3</p></div>
+            <div class="box"><p style="font-size: 14px;">4</p></div>
+        </div>
+        <div class="aliContainer" id="aliOpt5">
+            <div class="box"><p>1</p></div>
+            <div class="box"><p>2</p></div>
+            <div class="box"><p>3</p></div>
+            <div class="box"><p>4</p></div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>6. align-self: 각각의 플렉스 항목의 교차축 배치 지정</h1>
+        <div class="selfContainer">
+            <div class="box" id="self01"><p>1</p></div>
+            <div class="box" id="self02"><p>2</p></div>
+            <div class="box" id="self03"><p>3</p></div>
+            <div class="box" id="self04"><p>4</p></div>
+            <div class="box" id="self05"><p>5</p></div>
+            <div class="box" id="self06"><p>6</p></div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>7. align-content: wrap으로 인해 플렉스 항목이 여러 줄일 때 배치 방법</h1>
+        <div class="acContainer" id="acOpt1">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+        <div class="acContainer" id="acOpt2">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+        <div class="acContainer" id="acOpt3">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+        <div class="acContainer" id="acOpt4">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+        <div class="acContainer" id="acOpt5">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+        <div class="acContainer" id="acOpt6">
+            <div class="acBox"><p>1</p></div>
+            <div class="acBox"><p>2</p></div>
+            <div class="acBox"><p>3</p></div>
+            <div class="acBox"><p>4</p></div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>8. gap: 플렉스 항목 사이의 간격 지정</h1>
+        <div class="gapContainer">
+            <div class="gapBox"><p>1</p></div>
+            <div class="gapBox"><p>2</p></div>
+            <div class="gapBox"><p>3</p></div>
+            <div class="gapBox"><p>4</p></div>
+            <div class="gapBox"><p>5</p></div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>9. flex-basis: 플렉스 항목의 기본 크기를 지정</h1>
+        <div class="basisContainer">
+            <div class="basisBox"><p>가나다라마</p></div>
+            <div class="basisBox"><p>가나다라마바사</p></div>
+            <div class="basisBox"><p>asdfghj</p></div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>10. flex-grow: 플렉스 컨테이너에 남는 공간이 있을 때 어떻게 나눌지 지정</h1>
+        <div class="growContainer">
+            <div class="basisBox" id="growBox1"><p>1</p></div>
+            <div class="basisBox" id="growBox2"><p>2</p></div>
+            <div class="basisBox" id="growBox3"><p>3</p></div>
+            <div class="basisBox" id="growBox4"><p>4</p></div>
+        </div>
     </body>
 </html>
