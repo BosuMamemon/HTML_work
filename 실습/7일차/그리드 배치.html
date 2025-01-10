@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>그리드 배치</title>
+        <style>
+            .items-color:nth-child(odd) {background: yellow;}
+            .items-color:nth-child(even) {background: lightgreen;}
+
+            .container01 {
+                display: grid;
+                grid-template-rows: 50px 100px;
+                    /* 그리드 요소 행의 기본 높이 = 컨텐츠 박스의 높이(auto) */
+                grid-template-columns: 100px 200px 300px;
+                    /* 그리드 요소 열의 기본 너비 = 컨텐츠 박스의 너비(auto) */
+                /* 그리드에서 지정한 넓이보다 아이템의 크기가 더 크면, 그냥 아이템이 잘려서 보이게 됨 */
+            }
+            .items01 {
+                border: 1px solid black;
+                padding: 10px;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .container02 {
+                display: grid;
+                grid-template-columns: 100px 200px 300px;
+                grid-auto-rows: 100px;
+                    /* 뒤에 추가되는 행의 높이를 그냥 전부 다 100px로 설정 */
+            }
+
+            .container03 {
+                height: 300px;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                    /* 전체 열의 너비를 1:2:1로 나누겠다는 소리임 */
+                grid-auto-rows: 100px;
+            }
+
+            .container04 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                    /* repeat(반복횟수, 반복값) */
+                grid-auto-rows: minmax(100px, auto);
+            }
+
+            .container05 {
+                width: 800px;
+                border: 1px solid black;
+                display: grid;
+                margin-bottom: 20px;
+            }
+            .fit {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                    /* 남는 공간이 있다면 그리드 열을 1fr로 잡아줌 */
+            }
+            .fill {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                    /* 남는 공간이 있어도 그리드 열은 최소값 100px로만 고정 */
+            }
+
+            .container06 {
+                width: 600px;
+                border: 1px solid black;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px 30px;
+                    /* gap: 행간격값 열간격값; */
+            }
+
+            .container07 {
+                width: 700px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 100px);
+                gap: 1rem;
+            }
+            .items02 {
+                padding: 15px;
+                color: white;
+                font-size: 2rem;
+                text-align: center;
+                text-shadow: 0px 0px 10px black;
+            }
+            .box1 {
+                background: skyblue;
+                grid-column: 1 / -1;
+                grid-row-start: 1;
+                    /* start값만 작성하면, 1칸만 차지함.
+                       = grid-row: 1 / 2; 랑 똑같음 */
+            }
+            .box2 {
+                background: lightgreen;
+                grid-row: 2 / -1;
+                grid-column-start: 1;
+            }
+            .box3 {
+                background: orange;
+                grid-column: 2 / -1;
+                grid-row-start: 2;
+            }
+            .box4 {
+                background: yellow;
+                grid-column-start: 2;
+                grid-row-start: 3
+            }
+            .box5 {
+                background: red;
+                grid-column: 3 / -1;
+                grid-row: 3 / -1
+            }
+
+            .container08 {
+                width: 700px;
+                display: grid;
+                background: rgb(2, 0, 130);
+                grid-template-rows: repeat(3, 100px);
+                grid-template-areas:
+                    "col4 col1 col1"
+                    "col4 col5 col2"
+                    "col3 col3 col2";
+                gap: 1rem;
+                    /* row-gap: 1rem;
+                       column-gap: 1rem;
+                       이렇게도 지정할 수 있음!!*/
+            }
+            .tbox1 {
+                background: skyblue;
+                grid-area: col1;
+            }
+            .tbox2 {
+                background: lightgreen;
+                grid-area: col2;
+            }
+            .tbox3 {
+                background: orange;
+                grid-area: col3;
+            }
+            .tbox4 {
+                background: yellow;
+                grid-area: col4;
+            }
+            .tbox5 {
+                background: red;
+                grid-area: col5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container01">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>2. 그리드 컨테이너에서 동적으로 추가되는 행의 높이 지정</h1>
+        <div class="container02">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>3. fr 단위: frame 단위. 그리드 요소의 상대적인 크기를 지정</h1>
+        <div class="container03">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+            <div class="items01 items-color">6</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>4. repeat() 함수: 똑같은 값을 여러번 사용할 때 한꺼번에 작성하는 방법</h1>
+        <h1>   minmax() 함수: 크기의 최소 및 최대값을 지정</h1>
+        <div class="container04">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>5. auto-fit과 auto-fill</h1>
+        <!-- auto-fit: 남는 공간 없이 꽉 채우기
+             auto-fill: 열 최소 넓이만 표시하고 남는 공간은 그대로 둠 -->
+        <div class="container05 fit">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+        <div class="container05 fill">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>6. gap 속성: 행간, 열간 간격 설정</h1>
+        <!-- 그리드는 2차원 요소라서 gap도 행값 하나 열값 하나 따로 지정해줘야 함 -->
+        <div class="container06">
+            <div class="items01 items-color">1</div>
+            <div class="items01 items-color">2</div>
+            <div class="items01 items-color">3</div>
+            <div class="items01 items-color">4</div>
+            <div class="items01 items-color">5</div>
+            <div class="items01 items-color">6</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>7. 그리드 라인(번호)으로 항목을 배치하기</h1>
+        <div class="container07">
+            <div class="items02 box1">box1</div>
+            <div class="items02 box2">box2</div>
+            <div class="items02 box3">box3</div>
+            <div class="items02 box4">box4</div>
+            <div class="items02 box5">box5</div>
+        </div>
+
+        <br><hr><br>
+
+        <h1>8. 템플릿 영역을 사용해서 항목을 배치</h1>
+        <div class="container08">
+            <div class="items02 tbox1">box1</div>
+            <div class="items02 tbox2">box2</div>
+            <div class="items02 tbox3">box3</div>
+            <div class="items02 tbox4">box4</div>
+            <div class="items02 tbox5">box5</div>
+        </div>
+    </body>
+</html>
