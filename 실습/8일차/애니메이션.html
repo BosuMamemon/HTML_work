@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>애니메이션</title>
+        <style>
+            .box1 {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                text-align: center;
+                line-height: 100px;
+                color: white;
+                font-weight: bold;
+                animation-name: slideRight;
+                    /* 애니메이션 사용 선언 */
+                animation-duration: 1s;
+                    /* 애니메이션의 진행 시간 */
+                animation-iteration-count: infinite;
+                    /* 애니메이션의 반복 횟수 */
+                animation-direction: alternate;
+                    /* 홀수번쨰는 normal, 짝수번째는 reverse로 */
+                    /* 
+                    normal - 순행
+                    reverse - 역행
+                    alternate - 순행-역행 반복
+                    alternate-reverse - 역행-순행 반복
+                    */
+            }
+            @keyframes slideRight {
+                /* 애니메이션을 정의함 */
+                from {
+                    transform: translateX(0);
+                } to {
+                    transform: translateX(500px);
+                }
+                /* 0에서 500px까지 움직이는 애니메이션을 정의하였음 */
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                } 25% {
+                    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+                } 50% {
+                    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+                } 75% {
+                    transform: perspective(120px) rotateX(0deg) rotateY(-180deg);
+                } to {
+                    transform: perspective(120px) rotateX(0deg) rotateY(-360deg);
+                }
+            }
+            @keyframes background {
+                from {background-color: red;}
+                50% {background-color: green;}
+                to {background-color: blue;}
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                margin: 60px auto;
+                text-align: center;
+                line-height: 100px;
+                color: white;
+                font-weight: bold;
+                font-size: 1.5rem;
+                animation: rotate 6s ease-in-out infinite, background 3s ease-in-out infinite alternate;
+            }
+
+            .wrap {
+                width: 100%;
+                height: 1000px;
+                background-image: linear-gradient(to right, red, orange);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .button {
+                text-decoration: none;
+                /*       
+                */
+                font-size: 1.5em;
+                letter-spacing: 2px;
+                color: white;
+                outline: 2px solid white;
+                    /* padding 끝 라인에 줄을 그어주는 기능, 따로 영역이 존재하지는 않음 */
+                padding: 20px 60px;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+                    /* 요소의 내용이 넘쳐나면 숨기는 기능 */
+                transition: color 0.5s;
+            }
+            .button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -55px;
+                width: 0%;
+                transform: skewX(35deg);
+                height: 100%;
+                background-color: white;
+                z-index: -1;
+                    /* 숫자가 높을 수록 요소의 위로 올라온다 */
+                transition: width 1s;
+            }
+            .button:hover {
+                color: red;
+            }
+            .button:hover::before {
+                width: 150%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+        keyframes : 애니메이션을 정의함.
+        animation-delay: 애니메이션의 지연 시간
+        animation-direction: 종료한 뒤 다시 처음부터? 역순으로?
+        animation-duration: 애니메이션의 진행 시간
+        animation-iteration-count: 반복 횟수
+        animation-name: 정의한 애니메이션 이름
+        animation-timing-function: transition-timing-function과 동일. (속도곡선)
+        animation: 위 animation 속성을 한번에 작성할 수 있는 단축 속성
+        -->
+        <h1>1. 기본 애니메이션 예제</h1>
+        <div class="box1">BOX1</div>
+
+        <br><hr><br>
+
+        <h1>2.</h1>
+        <div class="box2">BOX2</div>
+
+        <br><hr><br>
+
+        <h1>3. 트랜스폼과 트랜지션으로 버튼 효과 만들기</h1>
+        <div class="wrap">
+            <a href="#" class="button">둘러보기</a>
+        </div>
+    </body>
+</html>
