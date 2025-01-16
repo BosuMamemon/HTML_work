@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>자습 테스트 페이지</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                letter-spacing: -2px;
+                margin: 0;
+            }
+            #headerer {
+                width: 100%;
+                height: 50px;
+                background-color: black;
+                overflow: hidden;
+                position: relative;
+            }
+            #logoTop {
+                display: block;
+                font-weight: bold;
+                font-size: 45px;
+                position: relative;
+                top: 40px;                                                                                          
+                transition: all;
+                /* transform: translateX(-200px); */
+                    /* 이거 실행 안됨... 선생님한테 물어보기 */
+            }
+            #logoBottom {
+                display: block;
+                font-weight: lighter;
+                font-size: 32px;
+                position: relative;
+                top: 52px;
+                right: 90px;
+            }
+            #header {
+                padding: 0px 30px;
+                border-bottom: 5px solid black;
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                background-image: linear-gradient(to right, rgb(239, 147, 54), rgb(215, 110, 39)) ;
+            }
+            #container ul {
+                margin: 0;
+                padding: 0 20px 50px;
+                width: 100%;
+                list-style-type: none;
+                background-image: linear-gradient(to right, rgb(248, 228, 79), white);
+            }
+            .menu {
+                margin: 0 25px;
+                width: 25%;
+                height: 50%;
+                padding: 20px 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                border-left: 10px solid black;
+                border-bottom: 3px solid black;
+                font-size: 2.2rem;
+                line-height: 50%;
+            }
+            .firstMenu {
+                height: 150px;
+                line-height: 200px;
+            }
+            #footer {
+                box-sizing: border-box;
+                width: 100%;
+                height: 100vw;
+                z-index: -10;
+                padding: 20px;
+                background-image: linear-gradient(to bottom, black, rgb(50, 50, 50));
+                overflow: hidden;
+                position: relative;
+                text-align: end;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="headerer"></div>
+        <div id="header">
+            <h1 id="logoTop">정현민의</h1>
+            <h1 id="logoBottom">테스트 페이지</h1>
+        </div>
+        <div id="container">
+            <ul>
+                <div class="menu firstMenu">
+                    <li>INFO</li>
+                </div>
+                <div class="menu secondMenu">
+                    <li>HOBBY</li>
+                </div>
+                <div class="menu thirdMenu">
+                    <li>NOTICE</li>
+                </div>
+                <div class="menu fourthMenu">
+                    <li>CONNECT</li>
+                </div>
+            </ul>
+        </div>
+        <div id="footer">JEONG HYEONMIN HAS COPYRIGHT
+            <br>
+            TO THIS PAGE
+            <br>
+            SO FUCK YOURSELF
+            <br>
+            AND FUCK OFF
+        </div>
+
+        <script>
+
+        </script>
+    </body>
+</html>
