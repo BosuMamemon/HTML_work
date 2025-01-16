@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 자리배치도</title>
+        <style>
+            table {}
+            tr {}
+
+        </style>
+    </head>
+    <body>
+        <!--
+         1. 입장객의 수 입력받기
+         2. 한 줄에 몇 명 앉을지 입력받기
+         3. 반복문과 table을 이용해서 좌석 출력하기
+        -->
+
+        <script>
+            let memNo = parseInt(prompt("입장객은 몇 분이십니까?"));
+            let colNo = parseInt(prompt("한 줄에 몇 분이 앉으십니까?"));
+            let rowNo = 0;
+            if(memNo % colNo === 0) {
+                rowNo = memNo / colNo;
+            } else {
+                rowNo = memNo / colNo + 1;
+            }
+            let memCount = 0;
+
+            document.write(`<div id="container">`);
+                document.write(`<h1>자리 배치도</h1>`)
+                document.write(`<table>`)
+                    for(let i = 0; i < rowNo; i++) {
+                        document.write(`<tr>`)
+                            for(let j = 1; j <= colNo; j++) {
+                                memCount++;
+                                if(memCount > memNo) break;
+                                document.write(`<td>좌석 ${memCount}<td>`);
+                            }
+                        document.write(`</tr>`)
+                    }
+                document.write(`</table>`)
+            document.write(`</div>`);
+        </script>
+    </body>
+</html>

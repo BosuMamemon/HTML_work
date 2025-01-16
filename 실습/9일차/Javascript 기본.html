@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 기본</title>
+    </head>
+    <body>
+        <h1 id="heading">자바스크립트</h1>
+        <p id="text">위 텍스트를 클릭해보세요.</p>
+
+        <script src="../../js/change-color.js"></script>
+            <!-- 외부 스크립트 파일 연결 -->
+        <script>
+            // 내부 스크립트 코드 작성
+            let heading = document.querySelector('#heading');
+            heading.onclick = function() {
+                heading.style.color = "red";
+            }
+        </script>
+
+        <script>
+            // 기본 입출력 방법
+
+            // 1. 알림창 띄우기
+            alert("안녕하세요.");
+
+            // 2. 확인창 띄우기
+            let reply = confirm("변경하시겠습니까?")
+            console.log(reply);
+
+            // 3. 입력받는 창 띄우기(입력하지 않으면 null값이 들어감)
+            // 매개인수 1개 = (질문)
+            // 매개인수 2개 = (질문, 입력기본값)
+            // let name = prompt("이름을 입력하세요.", "홍길동")
+            console.log(name);
+
+            // 4. 웹 브라우저 화면에 출력하기
+            document.write("<h1>안녕하세요.</h1>");
+            document.write("<h1>어서오세요. " + name + "님.</h1>");
+
+            // 5. console에 로그 찍기
+            // 웹 콘솔창 단축키 = ctrl + shift + j
+            console.log("안녕하세요.");
+
+            // 6. 주석
+            //  한 줄 주석: // ~~
+            // 여러 줄 주석: /* ~~ */
+
+            // 7. 변수: 데이터를 담아두는 공간(재사용성, 가독성)
+            // 변수 선언시 let 예약어 사용.
+            let width = 100;
+
+            // 8. 상수: 재할당이 불가능한 데이터를 담아두는 공간(값 변경 x)
+            // 상수 선언 시 const 예약어를 사용
+            const height = 100;
+            // height = 200; <- 콘솔에서 에러가 뜸
+
+            // 9. 자료형 확인(콘솔창에서 사용)
+            typeof width; // <-콘솔창에 치면 'number'라고 뜸
+                // 자바스크립트 단점: 실수 계산을 정확하게 하지 못한다
+                    // floating point를 써서 그런듯
+            
+            // 10. 특수문자 입력
+            console.log("I\'m studing Javascript.")
+
+            // 11. undefined와 null의 차이점
+            // undefined: 자료형이 정의되지 않은 상태(메모리에 값 할당 X)
+            // null: 데이터 값이 유효하지 않은 상태
+            let a;
+            console.log(a); // <- 자료형이 정의되지 않았으므로 undefined임
+
+            // 12. 배열(나중에 객체할 때 다시 다룸... 배열도 객체임)
+            let season = ["봄", "여름", "가을", "겨울"];
+
+            // 13. 템플릿 리터럴: 문자열과 변수를 같이 사용
+            // 백틱(``)을 사용함
+            document.write(`<h1>템플릿 리터럴을 사용하였습니다. ${name}님.</h1>`);
+            // document.write("<h1>어서오세요. " + name + "님.</h1>"); <- 이거랑 같은 코드임.
+
+            // 14. 자료형 변환
+            let num = 20;
+            console.log(num);
+            num = "문자열";
+            console.log(num); // 자바는 변수 선언을 let으로 하기 때문에 자료형을 알아서 지정해줌
+                // 수동 형변환 함수는 책 p.521 참고
+                // boolean() = 0, 빈값(''), null, undefined, NaN을 제외하고는 모두 true이다.
+                // parseInt(), parseFloat()에 숫자+문자를 입력하면 앞의 숫자만 인식하고 출력한다.
+
+            // 15. 비교 연산자(==, === // !=, !==의 차이점)
+            console.log(3 == "3"); // 자료형 상관없이 값만 체크한다
+            console.log(3 === "3"); // 자료형까지 체크한다
+                // 문자열 비교: 아스키 코드값으로 비교
+                    // 65 ~ 90  = A ~ Z
+                    // 97 ~ 122 = a ~ z
+
+            // 16. 논리 연산자 (or, and, not)
+            // A || B: or
+            // A && B: and
+            // !A: not
+
+            // 17. 조건문(if) - 3의 배수 출력하기
+            let userNumber = prompt("숫자를 입력하세요.");
+            if(userNumber === null) {
+                alert("입력을 취소하셨습니다.");
+            } else if(parseInt(userNumber) % 3 === 0) {
+                alert("3의 배수입니다.");
+            } else {
+                alert("3의 배수가 아닙니다.");
+            }
+
+            // 18. 조건문(switch)
+            let session = prompt("관심 세션을 선택해주세요. 1 - 마케팅, 2 - 개발, 3 - 디자인");
+            switch(session) {
+                case "1":
+                    document.write("<p>마케팅을 선택하셨습니다.</p>")
+                    break;
+                case "2":
+                    document.write("<p>개발을 선택하셨습니다.</p>")
+                    break;
+                case "3":
+                    document.write("<p>디자인을 선택하셨습니다.</p>")
+                    break;
+                default:
+                    alert("잘못 입력하셨습니다.");
+                    break;
+            }
+
+            // 19. 반복문(for)
+            let sum = 0;
+            for(let i = 0; i < 11; i++) {
+                sum += i;
+            }
+            console.log(`1부터 10까지 정수의 합은 [ ${sum} ]입니다.`);
+
+            // 20. 반복문(while) - n개의 별을 입력받아 1, 3, 5, 7, 9 순으로 출력함
+            // ex) 15를 입력받으면 1, 3, 5까지만 출력(15 < 1+3+5+7이라서 7은 생략)
+            // let stars = parseInt(prompt("출력할 별의 갯수를 입력하십시오."));
+            // let count = 1;
+            // document.write(`<div style="text-align: center;">`);
+            //     while(stars > 0) {
+            //         for(let i = 0; i < count; i++) {
+            //             document.write(`*`);
+            //             stars--;
+            //         }
+            //         document.write(`<br>`);
+            //         count += 2;
+            //         if(count > stars) {break;}
+            //     }
+            // document.write(`</div>`)
+
+            // 21. 반복문(do-while) - 사용자 입력에 따른 별 출력
+            let stars = parseInt(prompt(`몇 개의 별을 출력할까요?`));
+            document.write(`<h1>`)
+            do {
+                document.write(`*`);
+                stars--;
+            } while(stars > 0);
+            document.write(`</h1>`)
+        </script>
+    </body>
+</html>
